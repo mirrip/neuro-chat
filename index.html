@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чат</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23111'/></svg>">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-inner">
+        <span class="logo">●&nbsp;чат</span>
+        <div class="header-actions">
+          <span class="model-badge" id="modelBadge" title="Текущая модель"></span>
+          <button class="icon-btn" id="themeBtn" title="Тема" aria-label="Переключить тему">◐</button>
+          <button class="icon-btn" id="clearBtn" title="Очистить диалог" aria-label="Очистить диалог">✕</button>
+          <button class="icon-btn" id="settingsBtn" title="Настройки" aria-label="Настройки">⚙</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="chat" id="chat">
+      <div class="empty" id="emptyState">
+        <div class="empty-dot">●</div>
+        <p>Напишите что-нибудь, чтобы начать разговор</p>
+      </div>
+    </main>
+
+    <footer class="composer">
+      <div class="composer-inner">
+        <textarea id="input" rows="1" placeholder="Сообщение…" autofocus></textarea>
+        <button class="send-btn" id="sendBtn" title="Отправить" aria-label="Отправить">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="settingsModal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h2>Настройки</h2>
+        <button class="icon-btn" id="settingsClose" aria-label="Закрыть">✕</button>
+      </div>
+      <label>Адрес API
+        <input type="text" id="cfgApiUrl" spellcheck="false">
+      </label>
+      <label>Токен
+        <input type="password" id="cfgToken" spellcheck="false" autocomplete="off">
+      </label>
+      <label>Модель
+        <input type="text" id="cfgModel" spellcheck="false">
+      </label>
+      <div class="modal-actions">
+        <button class="btn-secondary" id="cfgReset">Сбросить</button>
+        <button class="btn-primary" id="cfgSave">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js?v=3"></script>
+  <script src="app.js?v=3"></script>
+</body>
+</html>
